@@ -17,12 +17,32 @@
 		 <!--reference to the jquery-->	
 <script>
 		$(document).ready(function() {
-		 
+			let textBox = $("#textBox"); // <- Let the textBox be this value
+   let getValButton = $("#getValButton");
+   getValButton.click(function(){
+    let val = textBox.val();
+   if(val === "male") {
+    $(".box").addClass("male");
+   } else if (val==="Male") {
+	$(".box").addClass("Male");
+   } else if (val==="female") {
+	$(".box").addClass("female");
+   } else if (val==="Female") {
+	$(".box").addClass("Female");
+    }  else {
+    $(".box").text("Please Enter The Accepted Answer!")
+   }
+   
+});
 	  }); 
 
 			/*	
 			    2) Make background color change and box/screen move when the user selects their gender using jquery
-			
+			a)create a bar with a screen and a border
+			b)create a label indicating whether the user is a male or female
+			c)Once the gender is submitted the screen will turn a different color depending on the sex selected. 
+			d)It will also have in writing "Welcome to my quiz sir, try and get every answer correct"
+			e)Have the bar move to the left if the user is a woman, and move to the right if he is man
 		         
 	*/	
 	
@@ -45,7 +65,11 @@
 
 </head>
 <body>
-
+	<h3><B><p>Please enter whether you are a male or female:</p></B></h3>
+	<input id = "textBox" type="text"/>
+	<input id = "getValButton" type="button" value="enter"/>	
+	<div class = "box">
+	</div>
 
 	<form id = "formId" name="formName" class = "formClassName" onsubmit="return false" action="serverside.php">
 <!--When the right answer is selected a green border will go around it, but if the answer is incorrect then the border will turn red.
@@ -71,14 +95,14 @@ an alert will be activated proclaiming that the answer was either correct or inc
 	
 	<!-- question One -->
 	<div id="q1">
-	     	<input type = "radio" name = "group1" value = "correct" id = "eight" class="input-hidden">
+	     	<input type = "radio" name = "group1" value = "correct" id = "eight">
 			<label for = "eight">8 years</label>
 	
-			<input type = "radio" name = "group1" value = "incorrect" id = "twelve" class="input-hidden">
+			<input type = "radio" name = "group1" value = "incorrect" id = "twelve">
 			<label for = "twelve">12 years</label>
             <!--This controls the actual value of our radio button, once the user clicks submit-->
 			
-			<input type = "radio"  name = "group1" value = "incorrect" id = "sixYears" class="input-hidden">
+			<input type = "radio"  name = "group1" value = "incorrect" id = "sixYears">
 		<!--This is the label for the actual radio button-->
 			<label for = "sixYears"> 6 years</label>
 	<button type = "button" id="submitAnswer">Submit</button>
@@ -209,7 +233,8 @@ an alert will be activated proclaiming that the answer was either correct or inc
 
 								<div>
 									<h3>Question 7) What is Riley passionate about?</h3>
-									<img src="Question Images/question7Science.jpg"/>
+									<img src="Question Images/question7Science.jpg"
+									class="questionSeven"/>
 									</div>
 									<div>
 									<input type = "radio" name = "group7" value = "incorrect" id = "Art">
@@ -228,44 +253,46 @@ an alert will be activated proclaiming that the answer was either correct or inc
 									</div>
 
 									<div>
-										<h3>Question 8) Who is the most violent main antagonist of Hello Puppets: The Midnight Show?</h3>
-										<img src="Question Images/question8Daisy.jpg"/>
+										<h3>Question 8) Who is the most violent antagonist of Hello Puppets: The Midnight Show?</h3>
+										<img src="Question Images/question8Daisy.jpg"
+										class="questionEight"/>
 									</div>
 										<div>
 										<input type = "radio" name = "group8" value = "incorrect" id = "Riley_ruckus">
-										<label for = "Riley">Riley Ruckus</label>
+										<label for = "Riley_ruckus">Riley Ruckus</label>
 
 										<input type = "radio" name = "group8" value = "incorrect" id = "Mortimer_handee">
-										<label for = "Mortimer Handee">Mortimer Handee</label>
+										<label for = "Mortimer_handee">Mortimer Handee</label>
 
 										<input type = "radio" name = "group8" value = "incorrect" id = "Nick_nack">
-										<label for = "Nick Nack">Nick Nack</label>
+										<label for = "Nick_nack">Nick Nack</label>
 
 										<input type = "radio" name = "group8" value = "correct" id = "Daisy_danger">
-										<label for = "Daisy Danger">Daisy Danger</label>
+										<label for = "Daisy_danger">Daisy Danger</label>
 										<button type = "button" id="submitAnswerEight">Submit</button>
 										<p id = "radioResultsEight"></p>
 									</div>
 
 									<div>
 										<h3>Question 9) Who was the first puppet created by Owen Gubberson?</h3>
-										<img src="Question Images/question9First.jpg"/>
+										<img src="Question Images/question9First.jpg"
+										class="questionNine"/>
 										</div>
 										<div>
 										<input type="radio" name="group9" value="incorrect" id="rileyRuckus_9">
 										<label for = "rileyRuckus_9">Riley Ruckus</label>
 
 										<input type = "radio" name = "group9" value = "incorrect" id = "nickNack_9">
-										<label for = "Nick_nackTwo">Nick Nack</label>
+										<label for = "nickNack_9">Nick Nack</label>
 
 										<input type = "radio" name = "group9" value = "incorrect" id = "daisyDanger_9">
-										<label for = "Daisy Danger">Daisy Danger</label>
+										<label for = "daisyDanger_9">Daisy Danger</label>
 
 										<input type = "radio" name = "group9" value = "correct" id = "mortimerHandee_9">
-										<label for = "Morimer Handee">Mortimer Handee</label>
+										<label for = "mortimerHandee_9">Mortimer Handee</label>
 
 										<input type = "radio" name = "group9" value = "incorrect" id = "scout_9">
-										<label for = "Scout">Scout</label>
+										<label for = "scout_9">Scout</label>
 										<button type = "button" id="submitAnswerNine">Submit</button>
 										<p id = "radioResultsNine"></p>
 
@@ -273,20 +300,21 @@ an alert will be activated proclaiming that the answer was either correct or inc
 
 									<div>
 										<h3>Question 10) Why do the puppets want to take over the world?</h3>
-										<img src="Question Images/question10Why.png"/>
+										<img src="Question Images/question10Why.png"
+										class="questionTen"/>
 									</div>
 										<div>
 										<input type = "radio" name="group10" value = "correct" id="human_host">
-										<label for = "For a life-time supply of human hosts?">For a life-time supply of human hosts?</label>
+										<label for = "human_host">For a life-time supply of human hosts?</label>
 
 										<input type = "radio" name = "group10" value = "incorrect" id ="suffering">
-										<label for = "To cause as much human suffering as possible?">To cause as much human suffering as possible?</label>
+										<label for = "suffering">To cause as much human suffering as possible?</label>
 
 										<input type = "radio" name= "group10" value = "incorrect" id="war">
-										<label for = "To start a war between humans and puppet?">To start a war between humans and puppets?</label>
+										<label for = "war">To start a war between humans and puppets?</label>
 
-										<input type = "radio" name="group10" value = "incorrect" id="revenge">
-										<label for = "Revenge against humans for being controlled on the show?">Revenge against humans for being controlled on the show?</label>
+										<input type = "radio" name="group10" value = "incorrect" id="control">
+										<label for = "control">Revenge against humans for being controlled on the show?</label>
 										<button type = "button" id="submitAnswerTen">Submit</button>
 										<p id = "radioResultsTen"></p>
 										</div>
@@ -436,7 +464,7 @@ for(let i = 0; i <= 10; i++) {
     }
   }
 }                   
-        alert("Total Correct Answers: " + amountCorrect);
+        alert("Correct Answers: " + amountCorrect);
 		
       }
 </script>
